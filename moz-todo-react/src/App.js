@@ -18,6 +18,9 @@ function App(props) {
     />
   ));
 
+  const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
+  const headingText = `${ taskList.length } ${ tasksNoun } tasks remaining`;
+
   function addTask(name) {
     // alert(name);
     const newTask = { id: "todo-" + nanoid(), name: name, completed: false };
@@ -34,7 +37,7 @@ function App(props) {
         <FilterButton />
       </div>
       <h2 id="list-heading">
-        3 tasks remaining
+        { headingText }
       </h2>
       <ul
         role="list"
